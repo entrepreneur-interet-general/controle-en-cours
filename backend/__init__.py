@@ -33,11 +33,11 @@ class WorkList(Resource):
 
     def post(self):
         print("Call for: POST /works")
-        parser.add_argument('name')
-        parser.add_argument('producer')
-        parser.add_argument('abv')
-        parser.add_argument('description')
-        parser.add_argument('styles', action='append')
+        parser.add_argument('report')
+        parser.add_argument('recipient')
+        parser.add_argument('date')
+        parser.add_argument('team')
+        parser.add_argument('juridiction', action='append')
         work = parser.parse_args()
         print(work)
         url = config.es_base_url['works']
@@ -72,8 +72,8 @@ class Style(Resource):
 class StyleList(Resource):
 
     def get(self):
-        print("Call for /styles")
-        url = config.es_base_url['styles']+'/_search'
+        print("Call for /juridiction")
+        url = config.es_base_url['juridiction']+'/_search'
         query = {
             "query": {
                 "match_all": {}
@@ -82,12 +82,12 @@ class StyleList(Resource):
         }
         resp = requests.post(url, data=json.dumps(query))
         data = resp.json()
-        styles = []
+        juridiction = []
         for hit in data['hits']['hits']:
             style = hit['_source']
             style['id'] = hit['_id']
-            styles.append(style)
-        return styles
+            juridiction.append(style)
+        return juridiction
 
 class Search(Resource):
 
@@ -99,13 +99,13 @@ class Search(Resource):
         query = {
             "query": {
                 "multi_match": {
-                    "fields": ["name", "producer", "description", "styles"],
+                    "fields": ["report", "recipient", "team", "juridiction"],
                     "query": query_string['q'],
                     "type": "cross_fields",
                     "use_dis_max": False,
                 }
             },
-            "sort": { "abv": { "order": "desc" }},
+            "sort": { "date": { "order": "desc" }},
             "size": 100
         }
         resp = requests.post(url, data=json.dumps(query))
@@ -119,5 +119,5 @@ class Search(Resource):
 
 api.add_resource(Work, config.api_base_url+'/works/<work_id>')
 api.add_resource(WorkList, config.api_base_url+'/works')
-api.add_resource(StyleList, config.api_base_url+'/styles')
+api.add_resource(StyleList, config.api_base_url+'/juridiction')
 api.add_resource(Search, config.api_base_url+'/search')

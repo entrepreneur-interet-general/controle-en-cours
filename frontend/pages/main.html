@@ -1,4 +1,4 @@
-<h1>Centrale des notifications</h1>
+<h1>Contrôles en cours</h1>
 
 <div class="container">
     <span class="col-md-6 col-md-offset-3">
@@ -21,32 +21,32 @@
     </thead>
     <tbody>
     <tr ng-repeat="result in results">
-        <td><a href="#/works/{{result.id}}">{{ result.name }}</a></td>
-        <td>{{ result.producer }}</td>
-        <td>{{ result.styles}}</td>
-        <td>{{ result.abv | date:"dd/MM/yyyy"}}</td>
+        <td><a href="#/works/{{result.id}}">{{ result.report }}</a></td>
+        <td>{{ result.recipient }}</td>
+        <td>{{ result.juridiction}}</td>
+        <td>{{ result.date | date:"dd/MM/yyyy"}}</td>
     </tr>
     </tbody>
 </table> -->
 <div class="container">
   <div class="panel panel-default" ng-repeat="result in results">
     <div class="panel-heading">
-      <b>{{ result.name }}</b>
+      <b>{{ result.report }}</b>
       <br>
-      Destinataire : {{ result.producer}}
+      Destinataire : {{ result.recipient}}
     </div>
     <div class="panel-body">
         <div class="col-md-4">
           Date de notification :
           <br>
-          <b>{{ result.abv | date:"dd/MM/yyyy"}}</b>
+          <b>{{ result.date | date:"dd/MM/yyyy"}}</b>
         </div>
         <div class="col-md-8">
           <div>
-          Équipe de contrôle : {{ result.description}}
+          Équipe de contrôle : {{ result.team}}
           </div>
           <div>
-          Chambre / FC : {{ result.styles }}
+          Chambre / FC : {{ result.juridiction }}
           <div>
         </div>
     </div>

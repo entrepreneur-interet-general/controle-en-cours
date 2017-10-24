@@ -14,13 +14,13 @@ services
 //         create: { method: 'POST', }
 //     });
 // })
-// .factory('Styles', function($resource) {
-//     return $resource('http://localhost:5000/api/v1/styles/:id', {id: '@id'}, {
+// .factory('Juridiction', function($resource) {
+//     return $resource('http://localhost:5000/api/v1/juridiction/:id', {id: '@id'}, {
 //         get: { method: 'GET' }
 //     });
 // })
 // .factory('Style', function($resource) {
-//     return $resource('http://localhost:5000/api/v1/styles', {}, {
+//     return $resource('http://localhost:5000/api/v1/juridiction', {}, {
 //         query: { method: 'GET', isArray: true}
 //     });
 // })
@@ -50,12 +50,12 @@ myApp.config(function($routeProvider) {
     })
 });
 
-// myApp.filter('filterStyles', function() {
+// myApp.filter('filterJuridiction', function() {
 //   return function(input) {
 //     var output = new Array();
 //     for (i=0; i<input.length; i++) {
 //         if (input[i].checked == true) {
-//             output.push(input[i].name);
+//             output.push(input[i].report);
 //         }
 //     }
 //     return output;
@@ -76,13 +76,13 @@ myApp.controller(
 
 // myApp.controller(
 //     'newWorkController',
-//     function ($scope, Styles, Works, $location, $timeout, $filter) {
-//         $scope.styles = Styles.query();
+//     function ($scope, Juridiction, Works, $location, $timeout, $filter) {
+//         $scope.juridiction = Juridiction.query();
 //         $scope.insertWork = function () {
-//             $scope.work.styles = $filter('filterStyles')($scope.styles);
+//             $scope.work.juridiction = $filter('filterJuridiction')($scope.juridiction);
 //             Works.create($scope.work);
 //             $timeout(function (){
-//                 $location.path('/works').search({'created': $scope.work.name});
+//                 $location.path('/works').search({'created': $scope.work.report});
 //             }, 500);
 //         };
 //         $scope.cancel = function() {

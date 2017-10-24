@@ -25,16 +25,16 @@
     "mappings": {
         "works": {
             "properties": {
-                "name": {"type": "string", "index_analyzer": "autocomplete", "search_analyzer": "standard"},
-                "styles": {"type": "string", "index_analyzer": "autocomplete", "search_analyzer": "standard"},
-                "abv": {"type": "date"},
-                "producer": {"type": "string", "index_analyzer": "autocomplete", "search_analyzer": "standard"},
-                "description": {"type": "string", "index_analyzer": "autocomplete", "search_analyzer": "standard"}
+                "report": {"type": "string", "index_analyzer": "autocomplete", "search_analyzer": "standard"},
+                "juridiction": {"type": "string", "index_analyzer": "autocomplete", "search_analyzer": "standard"},
+                "date": {"type": "date"},
+                "recipient": {"type": "string", "index_analyzer": "autocomplete", "search_analyzer": "standard"},
+                "team": {"type": "string", "index_analyzer": "autocomplete", "search_analyzer": "standard"}
             }
         },
-        "styles": {
+        "juridiction": {
             "properties": {
-                "name": {"type": "string", "index": "not_analyzed"},
+                "report": {"type": "string", "index": "not_analyzed"},
                 "parent":{"type": "string", "index": "not_analyzed"}
             }
         }
