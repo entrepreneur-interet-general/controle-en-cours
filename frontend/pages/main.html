@@ -1,0 +1,57 @@
+<h1>Centrale des notifications</h1>
+
+<div class="container">
+    <span class="col-md-6 col-md-offset-3">
+      <div style="margin-top: 60px; margin-bottom: 20px">
+        <input type="text" class="form-control" ng-model="searchString" placeholder='Rechercher une entité ex : "DGFIP"' ng-change="search()"/>
+      </div>
+    </span>
+</div>
+
+
+
+<!-- <table id="list_of_works" class="table table-striped" style="margin-top: 60px;">
+    <thead>
+    <tr>
+        <th style="min-width: 80px;">Contrôle</th>
+        <th style="min-width: 80px;">Destinataire</th>
+        <th style="min-width: 80px;">Chambre</th>
+        <th style="min-width: 80px;">Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="result in results">
+        <td><a href="#/works/{{result.id}}">{{ result.name }}</a></td>
+        <td>{{ result.producer }}</td>
+        <td>{{ result.styles}}</td>
+        <td>{{ result.abv | date:"dd/MM/yyyy"}}</td>
+    </tr>
+    </tbody>
+</table> -->
+<div class="container">
+  <div class="panel panel-default" ng-repeat="result in results">
+    <div class="panel-heading">
+      <b>{{ result.name }}</b>
+      <br>
+      Destinataire : {{ result.producer}}
+    </div>
+    <div class="panel-body">
+        <div class="col-md-4">
+          Date de notification :
+          <br>
+          <b>{{ result.abv | date:"dd/MM/yyyy"}}</b>
+        </div>
+        <div class="col-md-8">
+          <div>
+          Équipe de contrôle : {{ result.description}}
+          </div>
+          <div>
+          Chambre / FC : {{ result.styles }}
+          <div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- <a href="#/newWork" class="btn btn-small btn-primary">Insert New Work</a>
+<a href="#/works" class="btn btn-small btn-primary">Tous les contrôles</a> -->
