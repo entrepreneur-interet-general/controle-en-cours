@@ -2,5 +2,4 @@ venv
 backend/__pycache__
 frontend/bootstrap*
 frontend/lib
-data/works.data
 *.pyc
