@@ -68,6 +68,13 @@ Lancer le frontend :
 make frontend
 ```
 
+## Modifier les données
+Générer le fichier `data/works.data` avec `create-data.py`. Nécessite d'avoir un fichier `export.xlsx` dans le dossier :
+```
+python create-data.py
+```
+
+
 ## Limites actuelles
 
 - Quand la barre de recherche est vidée, les précédents résultats de recherche restent affichés.
