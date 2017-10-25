@@ -61,7 +61,9 @@ Lancer le backend :
 make backend
 ```
 
-Lancer le frontend dans une autre fenêtre (utiliser par exemple `screen`)
+Ouvrir une nouvelle fenêtre, par exemple avec `screen` (`Ctrl+a` puis `c`, voir [ici](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-screen-on-an-ubuntu-cloud-server)). Attention, dans la nouvelle fenêtre il faut réactiver l'environnement virtuel `source ./venv/bin/activate`.
+
+Lancer le frontend :
 ```
 make frontend
 ```
